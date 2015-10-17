@@ -8,10 +8,10 @@
 
 ***
 
-- data-background : images/sponsors.png
+- data-background : images/ddd-2015-10-sponsors.jpg
 - data-background-transition : none
 
-' Sponsors slide (required by organizators)
+' Sponsors slide (required by organizators) - Oct 2015
 
 ***
 
