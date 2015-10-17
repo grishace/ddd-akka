@@ -1,14 +1,16 @@
-﻿(**
-
-- title : Actor-based concurrency with Akka.NET 
+﻿- title : Actor-based concurrency with Akka.NET 
 - description : Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)
 - author : Grigoriy Belenkiy
 - theme : simple
-- transition : convex
+- transition : zoom
+
+***
 
 ### Actor-based concurrency with Akka.NET
 
-![](./images/.jpg)
+![Bruce Lee](./images/bruce_lee_render_3546x1114_by_sachso74-d6zg2tg.png)
+
+<!-- Image by sachso74 (DevianTArt) -->
 
 <small>Grigoriy Belenkiy<br/>
 Software engineer, McGraw Hill Financial
@@ -21,17 +23,18 @@ October 23, 2015</small>
 
 ### Agenda
 
-- Why F#?
-- Basics
-- Advanced features
-- More...
+- Actor model
+- Akka.NET
+- Sample application
+
+***
 
 ### Resources
+
+***
 
 ### That's all!
 
 #### Questions?
 
 [https://github.com/grishace/ddd-akka](https://github.com/grishace/ddd-akka)
-
-*)
