@@ -2,7 +2,7 @@
 - description : Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)
 - author : Grigoriy Belenkiy
 - theme : simple
-- transition : convex
+- transition : zoom
 
 ***
 
@@ -11,7 +11,6 @@
 - data-background-color : black
 
 ' Sponsors slide (required by organizators) - Oct 2015
-- transition : zoom
 
 ***
 
