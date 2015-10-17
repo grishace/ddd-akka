@@ -6,15 +6,6 @@
 - theme : simple
 - transition : convex
 
-***
-
-- data-background : images/sponsors.png
-- data-background-transition : none
-
-' Sponsors slide (required by organizators)
-
-***
-
 ### Actor-based concurrency with Akka.NET
 
 ![](./images/.jpg)
