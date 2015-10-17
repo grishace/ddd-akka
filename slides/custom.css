@@ -1,0 +1,11 @@
+img { 
+  border-style: none !important;
+  box-shadow: none !important;
+}
+
+
+div.slide-background.present {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
