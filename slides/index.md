@@ -13,8 +13,8 @@
 <!-- Image by sachso74 (DevianTArt) -->
 
 <small>Grigoriy Belenkiy<br/>
-Software engineer, McGraw Hill Financial
-<br/>
+Software engineer, McGraw Hill Financial<br/>
+[@grishace](https://twitter.com/grishace)<br/>
 <br/>
 Denver Dev Day<br/>
 October 23, 2015</small>
@@ -37,4 +37,5 @@ October 23, 2015</small>
 
 #### Questions?
 
-[https://github.com/grishace/ddd-akka](./images/qrcode.png)
+[![https://github.com/grishace/ddd-akka](./images/qrcode.png)](https://github.com/grishace/ddd-akka)<br/>
+[https://github.com/grishace/ddd-akka](https://github.com/grishace/ddd-akka)
