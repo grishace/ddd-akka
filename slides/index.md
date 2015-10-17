@@ -37,4 +37,4 @@ October 23, 2015</small>
 
 #### Questions?
 
-[https://github.com/grishace/ddd-akka](https://github.com/grishace/ddd-akka)
+[https://github.com/grishace/ddd-akka](./images/qrcode.png)
