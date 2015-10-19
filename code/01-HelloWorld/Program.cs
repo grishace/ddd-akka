@@ -7,12 +7,15 @@
     {
         static void Main(string[] args)
         {
-            using (var actorSystem = ActorSystem.Create("HelloWorld"))
+            ActorSystem actorSystem;
+            using (actorSystem = ActorSystem.Create("HelloWorld"))
             {
                 var helloWorldActor = actorSystem.ActorOf(Props.Create(() => new HelloWorldActor()));
                 helloWorldActor.Tell(new HelloWorldMessage("Hello, World!"));
                 Console.ReadLine();
             }
+
+            actorSystem.AwaitTermination();
         }
     }
 }
