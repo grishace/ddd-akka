@@ -8,8 +8,7 @@
     {
       var actorSystem = ActorSystem.Create("ActorsRemoteServer");
       actorSystem.ActorOf(
-        Props.Create(() => new AllocateRemoteActor()),
-        "allocate");
+        Props.Create(() => new AllocateRemoteActor()), "allocate");
       actorSystem.AwaitTermination();
     }
   }
