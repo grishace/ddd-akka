@@ -1,17 +1,18 @@
 ﻿namespace ActorsRemoteClient
 {
-    using ActorsConsole;
-    using Akka.Actor;
+  using ActorsConsole;
+  using Akka.Actor;
 
-    class Program
+  internal class Program
+  {
+    private static void Main()
     {
-        static void Main()
-        {
-            var actorSystem = ActorSystem.Create("ActorsRemoteClient");
-            var coordinator = actorSystem.ActorOf(Props.Create(() => new CoordinatorRemoteActor()));
-            coordinator.Tell(new ReadConsoleMessage());
+      var actorSystem = ActorSystem.Create("ActorsRemoteClient");
+      var coordinator =
+        actorSystem.ActorOf(Props.Create(() => new CoordinatorRemoteActor()));
+      coordinator.Tell(new ReadConsoleMessage());
 
-            actorSystem.AwaitTermination();
-        }
+      actorSystem.AwaitTermination();
     }
+  }
 }

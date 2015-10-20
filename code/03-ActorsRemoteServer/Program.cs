@@ -1,14 +1,16 @@
 ﻿namespace ActorsRemoteServer
 {
-    using Akka.Actor;
+  using Akka.Actor;
 
-    class Program
+  internal class Program
+  {
+    private static void Main()
     {
-        static void Main()
-        {
-            var actorSystem = ActorSystem.Create("ActorsRemoteServer");
-            actorSystem.ActorOf(Props.Create(() => new AllocateRemoteActor()), "allocate");
-            actorSystem.AwaitTermination();
-        }
+      var actorSystem = ActorSystem.Create("ActorsRemoteServer");
+      actorSystem.ActorOf(
+        Props.Create(() => new AllocateRemoteActor()),
+        "allocate");
+      actorSystem.AwaitTermination();
     }
+  }
 }

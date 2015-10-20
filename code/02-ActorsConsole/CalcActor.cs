@@ -1,47 +1,48 @@
 ﻿namespace ActorsConsole
 {
-    using Akka.Actor;
+  using Akka.Actor;
 
-    public class ResultMessage
+  public class ResultMessage
+  {
+    public string Origin { get; private set; }
+
+    public int Count { get; private set; }
+
+    public ResultMessage(string origin, int count)
     {
-        public string Origin { get; private set; }
-        public int Count { get; private set; }
-
-        public ResultMessage(string origin, int count)
-        {
-            Origin = origin;
-            Count = count;
-        }
+      Origin = origin;
+      Count = count;
     }
+  }
 
-    /// <summary>
-    /// Do the same kind of CPU-bound task we started in AsyncConsole example.
-    /// </summary>
-    public class CalcActor : UntypedActor
+  /// <summary>
+  /// Do the same kind of CPU-bound task we started in AsyncConsole example.
+  /// </summary>
+  public class CalcActor : UntypedActor
+  {
+    protected override void OnReceive(object message)
     {
-        protected override void OnReceive(object message)
+      if (message is StartCalculation)
+      {
+        int size = 0;
+        for (int z = 0; z < 100; z++)
         {
-            if (message is StartCalculation)
-            {
-                int size = 0;
-                for (int z = 0; z < 100; z++)
-                {
-                    for (int i = 0; i < 1000000; i++)
-                    {
-                        string value = i.ToString();
-                        size += value.Length;
-                    }
-                }
-
-                // Send the calculation result back
-                Sender.Tell(new ResultMessage(((StartCalculation)message).Origin, size));
-                // and stop the actor because it is not needed anymore
-                Context.Stop(Self);
-
-                return;
-            }
-
-            Unhandled(message);
+          for (int i = 0; i < 1000000; i++)
+          {
+            string value = i.ToString();
+            size += value.Length;
+          }
         }
+
+        // Send the calculation result back
+        Sender.Tell(new ResultMessage(((StartCalculation)message).Origin, size));
+        // and stop the actor because it is not needed anymore
+        Context.Stop(Self);
+
+        return;
+      }
+
+      Unhandled(message);
     }
+  }
 }
