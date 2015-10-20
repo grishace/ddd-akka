@@ -1,15 +1,18 @@
-﻿namespace DDDAkka.HelloWorld
+﻿namespace HelloWorld
 {
-    using System.Runtime.Serialization;
-
     class HelloWorldMessage
     {
-        [DataMember]
+        /// <summary>
+        /// Message payload.
+        /// </summary>
+        /// <remarks>
+        /// Private setter - immutable!
+        /// </remarks>
         public string Message { get; private set; }
 
         public HelloWorldMessage(string message)
         {
-            this.Message = message;
+            Message = message;
         }
     }
 }
