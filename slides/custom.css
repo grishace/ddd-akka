@@ -10,3 +10,7 @@ div.slide-background.present {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+#books-table td {
+   border-style: none !important;
+}
