@@ -178,6 +178,67 @@ Akka.NET (<a href="https://www.typesafe.com/">Petabridge</a>, 2014-2015)</p>
 
 <section >
 
+<h3>Hello, World!</h3>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp">      ActorSystem actorSystem;
+      <span class="k">using</span> (actorSystem <span class="o">=</span> ActorSystem.Create(<span class="s">"HelloWorld"</span>))
+      {
+        <span class="k">var</span> helloWorldActor <span class="o">=</span>
+          actorSystem.ActorOf(Props.Create(() <span class="o">=</span><span class="o">&gt;</span> <span class="k">new</span> HelloWorldActor()));
+        helloWorldActor.Tell(<span class="k">new</span> HelloWorldMessage(<span class="s">"Hello, World!"</span>));
+      }
+      actorSystem.AwaitTermination();
+</code></pre></td></tr></table>
+
+</section>
+
+<section >
+
+<h3>Actor</h3>
+
+<p><img src="./images/actor.png" alt="Actor" /></p>
+
+</section>
+
+<section >
+
+<section >
+
+<h3>Supervision</h3>
+
+<p><img src="./images/TopLevelSupervisors.png" alt="Top Level Supervisors" /></p>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<h3>One-For-One Strategy</h3>
+
+<p><img src="./images/OneForOne.png" alt="One-For-One Strategy" /></p>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<h3>All-For-One Strategy</h3>
+
+<p><img src="./images/AllForOne.png" alt="All-For-One Strategy" /></p>
+
+</section>
+
+</section>
+
+<section >
+
 <h3>Other implementations</h3>
 
 <ul>
