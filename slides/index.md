@@ -37,6 +37,14 @@ October 23, 2015</small>
 
 ***
 
+### Other Actors implementations
+
+- Orleans<br/>[https://github.com/dotnet/orleans](https://github.com/dotnet/orleans)<br/>
+- PostSharp<br/>[http://doc.postsharp.net/actor](https://github.com/dotnet/orleans)<br/><small>commercial product, only 10 classes per project in free version</small><br/>
+- F# MailboxProcessor<br/>[MSDN](https://msdn.microsoft.com/en-us/library/ee370357.aspx?f=255&MSPPError=-2147217396)<br/><small>included into FSharp.Core</small>
+
+***
+
 ### Resources
 
 - JVM Akka [http://akka.io](http://akka.io)
