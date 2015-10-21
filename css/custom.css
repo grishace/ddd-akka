@@ -14,3 +14,16 @@ div.slide-background.present {
 #books-table td {
    border-style: none !important;
 }
+
+.fragment.dn {
+  display: none !important;
+}
+
+.fragment.dn.visible {
+  display: inline !important;
+}
+
+
+img[alt=Akka] { 
+  width: 620px !important;
+}

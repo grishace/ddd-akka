@@ -79,16 +79,106 @@ October 23, 2015</small></p>
 <h3>Agenda</h3>
 
 <ul>
-<li>Actor model</li>
+<li>Actor Model</li>
 <li>Akka.NET</li>
-<li>Sample application</li>
+<li>Demo</li>
 </ul>
 
 </section>
 
 <section >
 
-<h3>Other Actors implementations</h3>
+<section >
+
+<h3>The free lunch is over!</h3>
+
+<ul>
+<span class="fragment"><li>Moore's law is no longer in effect</li></span>
+<span class="fragment"><li>The new reality: Amdahl’s law</li></span>
+</ul>
+
+<aside class="notes">
+Free lunch is over - 2005 - Dr. Dobb's magazine<br/>
+Moore's law - 1965- transistor doubles every 18 months (and speed)<br/>
+Amdahl’s law - 1967 - max speedup from parallel execution ~20%<br/>
+</aside>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<p><img src="./images/AmdahlsLaw.svg" alt="Amdahl’s law" /></p>
+
+</section>
+
+</section>
+
+<section >
+
+<h3>10 years later...</h3>
+
+<ul>
+<span class="fragment"><li>Still hard to write <span class="fragment dn">correct</span> concurrent applications</li></span>
+<span class="fragment"><li>Shared <span class="fragment dn">mutable</span> state</li></span>
+<span class="fragment"><li>Isolation + Immutability</li></span>
+</ul>
+
+<aside class="notes">
+threads - deadlocks, race conditions<br/>
+async/await + TPL<br/>
+<br/>
+</aside>
+
+</section>
+
+<section >
+
+<section >
+
+<h3>Actor Model</h3>
+
+<blockquote>
+  <p>The actor model in computer science is a mathematical model of concurrent computation that treats "actors" as the universal primitives of concurrent computation: in response to a message that it receives, an actor can make local decisions, create more actors, send more messages, and determine how to respond to the next message received.</p>
+</blockquote>
+
+<p>Carl Hewitt (1973), <a href="https://en.wikipedia.org/wiki/Actor_model">Wikipedia</a></p>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<h3>Actor Model</h3>
+
+<ul>
+<li>Erlang (first version - 1986, famous AXD301 switch - 1998)</li>
+<li>Part of Scala (2006)</li>
+</ul>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<p><a href="http://akka.io/"><img src="./images/akka_full_color.svg" alt="Akka" /></a><br/>
+Akka (<a href="https://www.typesafe.com/">Typesafe, Inc.</a>, 2010)</p>
+
+<aside class="notes">
+mountain in Sweden<br/>
+</aside>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<p><a href="http://getakka.net/"><img src="./images/B4w4ReeCAAEVmdW.jpg" alt="Akka.NET" /></a><br/>
+Akka.NET (<a href="https://www.typesafe.com/">Petabridge</a>, 2014-2015)</p>
+
+</section>
+
+</section>
+
+<section >
+
+<h3>Other implementations</h3>
 
 <ul>
 <li>Orleans<br/><a href="https://github.com/dotnet/orleans"><a href="https://github.com/dotnet/orleans">https://github.com/dotnet/orleans</a></a><br/></li>
@@ -117,16 +207,16 @@ October 23, 2015</small></p>
 <h3>Books</h3>
 
 <table id="books-table"><tr>
-<td width="33%"><a href="https://www.manning.com/books/akka-in-action" title="Akka in Action"><img alt="Akka in Action" src="./images/roestenburg-meap.png"/></td>
-<td width="33%"><a href="http://shop.oreilly.com/product/0636920028789.do" title="Effective Akka"><img alt="Effective Akka" src="./images/lrg.jpg"/></td>
-<td width="34%"><a href="http://www.amazon.com/Reactive-Messaging-Patterns-Actor-Model/dp/0133846830/" title="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka"><img alt="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka" src="./images/b974c4b898c2485ca7bb6e08caf7a30f.jpg"/></td>
+<td width="33%"><a href="https://www.manning.com/books/akka-in-action" title="Akka in Action"><img alt="Akka in Action" src="./images/roestenburg-meap.png"/></a></td>
+<td width="33%"><a href="http://shop.oreilly.com/product/0636920028789.do" title="Effective Akka"><img alt="Effective Akka" src="./images/lrg.jpg"/></a></td>
+<td width="34%"><a href="http://www.amazon.com/Reactive-Messaging-Patterns-Actor-Model/dp/0133846830/" title="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka"><img alt="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka" src="./images/b974c4b898c2485ca7bb6e08caf7a30f.jpg"/></a></td>
 </tr>
 <tr><td>
-<small><h3>Akka in Action</h3</a>
+<small><h3>Akka in Action</h3>
 <h4>by Raymond Roestenburg, Rob Bakker, and Rob Williams</h4></small></td>
-<td><small><h3>Effective Akka</h3></a>
+<td><small><h3>Effective Akka</h3>
 <h4>by Jamie Allen</h4></small></td>
-<td><small><h3>Reactive Messaging<br/>Patterns with the Actor Model</h3></a>
+<td><small><h3>Reactive Messaging<br/>Patterns with the Actor Model</h3>
 <h4>by Vaughn Vernon</h4></small></td>
 </tr></table>
 
