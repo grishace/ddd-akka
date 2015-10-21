@@ -33,13 +33,6 @@
         return;
       }
 
-      // handle shutdown message
-      if (message is ShutdownMessage)
-      {
-        Context.System.Shutdown();
-        return;
-      }
-
       Unhandled(message);
     }
   }

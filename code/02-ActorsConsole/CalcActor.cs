@@ -18,31 +18,24 @@
   /// <summary>
   /// Do the same kind of CPU-bound task we started in AsyncConsole example.
   /// </summary>
-  public class CalcActor : UntypedActor
+  public class CalcActor : TypedActor, IHandle<StartCalculation>
   {
-    protected override void OnReceive(object message)
+    public void Handle(StartCalculation message)
     {
-      if (message is StartCalculation)
+      int size = 0;
+      for (int z = 0; z < 100; z++)
       {
-        int size = 0;
-        for (int z = 0; z < 100; z++)
+        for (int i = 0; i < 1000000; i++)
         {
-          for (int i = 0; i < 1000000; i++)
-          {
-            string value = i.ToString();
-            size += value.Length;
-          }
+          string value = i.ToString();
+          size += value.Length;
         }
-
-        // Send the calculation result back
-        Sender.Tell(new ResultMessage(((StartCalculation)message).Origin, size));
-        // and stop the actor because it is not needed anymore
-        Context.Stop(Self);
-
-        return;
       }
 
-      Unhandled(message);
+      // Send the calculation result back
+      Sender.Tell(new ResultMessage(((StartCalculation)message).Origin, size));
+      // and stop the actor because it is not needed anymore
+      Context.Stop(Self);
     }
   }
 }

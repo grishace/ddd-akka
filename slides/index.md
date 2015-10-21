@@ -96,6 +96,45 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 
 ***
 
+### Hello, World!
+
+```csharp
+      ActorSystem actorSystem;
+      using (actorSystem = ActorSystem.Create("HelloWorld"))
+      {
+        var helloWorldActor =
+          actorSystem.ActorOf(Props.Create(() => new HelloWorldActor()));
+        helloWorldActor.Tell(new HelloWorldMessage("Hello, World!"));
+      }
+      actorSystem.AwaitTermination();
+```
+
+***
+
+### Actor
+
+![Actor](./images/actor.png)
+
+***
+
+### Supervision
+
+![Top Level Supervisors](./images/TopLevelSupervisors.png)
+
+---
+
+### One-For-One Strategy
+
+![One-For-One Strategy](./images/OneForOne.png)
+
+---
+
+### All-For-One Strategy
+
+![All-For-One Strategy](./images/AllForOne.png)
+
+***
+
 ### Other implementations
 
 - Orleans<br/>[https://github.com/dotnet/orleans](https://github.com/dotnet/orleans)<br/>
