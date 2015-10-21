@@ -1,5 +1,9 @@
 ﻿namespace ActorsConsole
 {
+  using System;
+  using System.Threading;
+  using System.Threading.Tasks;
+
   using Akka.Actor;
 
   public class ResultMessage
@@ -15,27 +19,58 @@
     }
   }
 
+  public class CancelCalculation
+  {
+  }
+
   /// <summary>
   /// Do the same kind of CPU-bound task we started in AsyncConsole example.
   /// </summary>
-  public class CalcActor : TypedActor, IHandle<StartCalculation>
+  public class CalcActor : TypedActor, IHandle<StartCalculation>, IHandle<CancelCalculation>
   {
+    private readonly CancellationTokenSource cancel = new CancellationTokenSource();
+
     public void Handle(StartCalculation message)
     {
-      int size = 0;
-      for (int z = 0; z < 100; z++)
-      {
-        for (int i = 0; i < 1000000; i++)
-        {
-          string value = i.ToString();
-          size += value.Length;
-        }
-      }
+      var context = Context;
+      var sender = Sender;
+      var self = Self;
 
-      // Send the calculation result back
-      Sender.Tell(new ResultMessage(((StartCalculation)message).Origin, size));
-      // and stop the actor because it is not needed anymore
-      Context.Stop(Self);
+      Task.Run(
+        () =>
+        {
+          int size = 0;
+          for (int z = 0; z < 100; z++)
+          {
+            for (int i = 0; i < 1000000; i++)
+            {
+              string value = i.ToString();
+              size += value.Length;
+              if (cancel.IsCancellationRequested)
+              {
+                throw new OperationCanceledException();
+              }
+            }
+          }
+          return size;
+        }, cancel.Token)
+        .ContinueWith(
+          c =>
+          {
+            if (!(c.IsCanceled || c.IsFaulted))
+            {
+              // Send the calculation result back
+              sender.Tell(new ResultMessage(message.Origin, c.Result));
+            }
+
+            // and stop the actor because it is not needed anymore
+            context.Stop(self);
+          }, TaskContinuationOptions.ExecuteSynchronously);
+    }
+
+    public void Handle(CancelCalculation message)
+    {
+      cancel.Cancel();
     }
   }
 }

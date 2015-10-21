@@ -88,6 +88,12 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 
 ***
 
+### Actor
+
+![Actor](./images/actor.png)
+
+***
+
 ### Hello, World!
 
 ```csharp
@@ -100,12 +106,6 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
       }
       actorSystem.AwaitTermination();
 ```
-
-***
-
-### Actor
-
-![Actor](./images/actor.png)
 
 ***
 
@@ -124,6 +124,12 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 ### All-For-One Strategy
 
 ![All-For-One Strategy](./images/AllForOne.png)
+
+***
+
+### Demo
+
+![https://github.com/grishace/ddd-akka/tree/master/code](https://github.com/grishace/ddd-akka/tree/master/code)
 
 ***
 

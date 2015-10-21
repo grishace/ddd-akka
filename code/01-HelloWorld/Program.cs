@@ -8,8 +8,6 @@
     {
       // Create actor system
       ActorSystem actorSystem;
-      // ActorSystem implements IDisposable and Dispose automatically
-      // shuts the system down
       using (actorSystem = ActorSystem.Create("HelloWorld"))
       {
         // Create actor
@@ -18,9 +16,20 @@
         // Send the message
         helloWorldActor.Tell(new HelloWorldMessage("Hello, World!"));
       }
-
       // Wait for the system graceful shutdown
       actorSystem.AwaitTermination();
+
+      #region with behavior change
+
+      actorSystem = ActorSystem.Create("HelloWorld");
+      var helloActor = actorSystem.ActorOf(Props.Create(() => new HelloActor()));
+      helloActor.Tell(new HelloWorldMessage("\nAnd "));
+      helloActor.Tell(new ShutdownMessage());
+      helloActor.Tell(new HelloWorldMessage("Denver Dev Day!"));
+      helloActor.Tell(new ShutdownMessage());
+      actorSystem.AwaitTermination();
+
+      #endregion
     }
   }
 }

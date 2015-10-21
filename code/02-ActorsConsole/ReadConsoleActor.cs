@@ -26,6 +26,12 @@ namespace ActorsConsole
           return;
         }
 
+        if (string.Compare("CANCEL", str, StringComparison.OrdinalIgnoreCase) == 0)
+        {
+          Sender.Tell(new CancelCalculation());
+          return;
+        }
+
         // Send 2 messages: write message with the payload and start calculation
         Sender.Tell(
           new WriteConsoleMessage(string.Format("You typed: {0}", str)));

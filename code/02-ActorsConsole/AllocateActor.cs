@@ -33,6 +33,12 @@
         return;
       }
 
+      if (message is CancelCalculation)
+      {
+        var calc = Context.ActorSelection("/user/allocate/*");
+        calc.Tell(message);
+      }
+
       Unhandled(message);
     }
   }
