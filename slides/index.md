@@ -6,7 +6,7 @@
 
 ***
 
-- data-background : images/ddd-2015-10-sponsors.jpg
+- data-background : images/ddd-2015-10-sponsors.png
 - data-background-transition : none
 - data-background-color : black
 
