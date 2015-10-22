@@ -129,7 +129,7 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 
 ### Demo
 
-![https://github.com/grishace/ddd-akka/tree/master/code](https://github.com/grishace/ddd-akka/tree/master/code)
+[https://github.com/grishace/ddd-akka/tree/master/code](https://github.com/grishace/ddd-akka/tree/master/code)
 
 ***
 
