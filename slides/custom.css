@@ -11,7 +11,7 @@ div.slide-background.present {
     background-repeat: no-repeat;
 }
 
-#books-table td {
+.no-borders-table td {
    border-style: none !important;
 }
 

@@ -24,7 +24,9 @@
       actorSystem = ActorSystem.Create("HelloWorld");
       var helloActor = actorSystem.ActorOf(Props.Create(() => new HelloActor()));
       helloActor.Tell(new HelloWorldMessage("\nAnd "));
+      // bacause of behavior change the following message will be skipped
       helloActor.Tell(new ShutdownMessage());
+      // and this one will be added to the previous message and printed
       helloActor.Tell(new HelloWorldMessage("Denver Dev Day!"));
       helloActor.Tell(new ShutdownMessage());
       actorSystem.AwaitTermination();
