@@ -35,12 +35,19 @@ namespace ActorsConsole
         return;
       }
 
-      // Resend calculation message
-      if (message is StartCalculation)
+      // Resend calculation messages
+      var isCancel = message is CancelCalculation;
+      if ((message is StartCalculation) || isCancel)
       {
         // Allocate actor is not created every time - is created with the system and plays as mediator
         var alloc = Context.ActorSelection("/user/allocate");
         alloc.Tell(message);
+
+        // continue normal operation
+        if (isCancel)
+        {
+          Self.Tell(new ReadConsoleMessage());
+        }
 
         return;
       }
