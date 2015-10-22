@@ -133,6 +133,18 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 
 ***
 
+### Akka.NET Goes to Wall Street
+
+>With two people, and me doing 80% of the work, we were able to completely rewrite the XHR/Web API layer into SignalR/Akka inside of 4 weeks.
+
+<!-- -->
+
+>I couldn't be happier with Akka overall.
+
+<small>Joel Mueller, Software Architect, SNL Financial<br/><a href="https://petabridge.com/blog/akkadotnet-goes-to-wall-street/">https://petabridge.com/blog/akkadotnet-goes-to-wall-street/</a></small>
+
+***
+
 ### Other implementations
 
 - Orleans<br/>[https://github.com/dotnet/orleans](https://github.com/dotnet/orleans)<br/>
