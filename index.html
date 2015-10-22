@@ -61,7 +61,7 @@ Sponsors slide (required by organizators) - Oct 2015<br/>
 
 <h3>Actor-based concurrency with Akka.NET</h3>
 
-<p><img src="./images/bruce_lee_render_3546x1114_by_sachso74-d6zg2tg.png" alt="Bruce Lee" /></p>
+<p><img src="./images/bruce_lee_render_3546x1114_by_sachso74-d6zg2tg.png" alt="Actor with concurrency" /></p>
 
 <!-- Image by sachso74 (DevianTArt) -->
 
@@ -143,6 +143,10 @@ async/await + TPL<br/>
 
 <p>Carl Hewitt (1973), <a href="https://en.wikipedia.org/wiki/Actor_model">Wikipedia</a></p>
 
+<aside class="notes">
+Extreme encapsulation<br/>
+</aside>
+
 </section>
 
 <section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
@@ -170,7 +174,17 @@ mountain in Sweden<br/>
 <section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <p><a href="http://getakka.net/"><img src="./images/B4w4ReeCAAEVmdW.jpg" alt="Akka.NET" /></a><br/>
-Akka.NET (<a href="https://www.typesafe.com/">Petabridge</a>, 2014-2015)</p>
+Akka.NET (<a href="https://www.typesafe.com/">Petabridge, LLC</a>, 2014-2015)</p>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<h3>Actor Model</h3>
+
+<p style="text-align:justify">
+In the Actor model, everything is an actor. Just like how everything is an "object" in Object Oriented Programming (OOP.) When working in C#, you have to model your problem domain using classes and objects. When working with Akka.NET, you model your problem domain with actors and messages.
+</p>
 
 </section>
 
@@ -178,9 +192,32 @@ Akka.NET (<a href="https://www.typesafe.com/">Petabridge</a>, 2014-2015)</p>
 
 <section >
 
+<section >
+
 <h3>Actor</h3>
 
 <p><img src="./images/actor.png" alt="Actor" /></p>
+
+<aside class="notes">
+Image by Petabridge<br/>
+Async messages<br/>
+ActorRef - location transparency<br/>
+System messages (such as child failure) has highest priority (i.e. bypasses message ordering)<br/>
+</aside>
+
+</section>
+
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+
+<h3>Actor Address</h3>
+
+<p><img src="./images/akka-actor-address-and-path.png" alt="ActorPath" /></p>
+
+<aside class="notes">
+Image by Petabridge<br/>
+</aside>
+
+</section>
 
 </section>
 
@@ -217,21 +254,29 @@ Akka.NET (<a href="https://www.typesafe.com/">Petabridge</a>, 2014-2015)</p>
 
 <p><img src="./images/TopLevelSupervisors.png" alt="Top Level Supervisors" /></p>
 
-</section>
-
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
-
-<h3>One-For-One Strategy</h3>
-
-<p><img src="./images/OneForOne.png" alt="One-For-One Strategy" /></p>
+<aside class="notes">
+Image by Petabridge<br/>
+Restart (default), Stop, Escalate, Resume<br/>
+Point - localizing failure, push potentially dangerous operation to a child<br/>
+</aside>
 
 </section>
 
 <section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
-<h3>All-For-One Strategy</h3>
+<h3>Supervision Strategies</h3>
 
-<p><img src="./images/AllForOne.png" alt="All-For-One Strategy" /></p>
+<table class="no-borders-table">
+<tr><td width="50%">One-For-One Strategy</td><td width="50%">All-For-One Strategy</td></tr>
+<tr>
+<td><img alt="One-For-One Strategy" src="./images/OneForOne.png" /></td>
+<td><img alt="All-For-One Strategy" src="./images/AllForOne.png" /></td>
+</tr>
+</table>
+
+<aside class="notes">
+Images by Petabridge<br/>
+</aside>
 
 </section>
 
@@ -247,10 +292,28 @@ Akka.NET (<a href="https://www.typesafe.com/">Petabridge</a>, 2014-2015)</p>
 
 <section >
 
+<h3>Akka.NET Goes to Wall Street</h3>
+
+<blockquote>
+  <p>With two people, and me doing 80% of the work, we were able to completely rewrite the XHR/Web API layer into SignalR/Akka inside of 4 weeks.</p>
+</blockquote>
+
+<!-- -->
+
+<blockquote>
+  <p>I couldn't be happier with Akka overall.</p>
+</blockquote>
+
+<small>Joel Mueller, Software Architect, SNL Financial<br/><a href="https://petabridge.com/blog/akkadotnet-goes-to-wall-street/">https://petabridge.com/blog/akkadotnet-goes-to-wall-street/</a></small>
+
+</section>
+
+<section >
+
 <h3>Other implementations</h3>
 
 <ul>
-<li>Orleans<br/><a href="https://github.com/dotnet/orleans"><a href="https://github.com/dotnet/orleans">https://github.com/dotnet/orleans</a></a><br/></li>
+<li>Orleans<br/><a href="https://github.com/dotnet/orleans"><a href="https://github.com/dotnet/orleans">https://github.com/dotnet/orleans</a></a><br/><small>Achtung! Different language!</small></li>
 <li>PostSharp<br/><a href="https://github.com/dotnet/orleans"><a href="http://doc.postsharp.net/actor">http://doc.postsharp.net/actor</a></a><br/><small>commercial product, only 10 classes per project in free version</small><br/></li>
 <li>F# MailboxProcessor<br/><a href="https://msdn.microsoft.com/en-us/library/ee370357.aspx?f=255&amp;MSPPError=-2147217396">MSDN</a><br/><small>included into FSharp.Core</small></li>
 </ul>
@@ -275,7 +338,7 @@ Akka.NET (<a href="https://www.typesafe.com/">Petabridge</a>, 2014-2015)</p>
 
 <h3>Books</h3>
 
-<table id="books-table"><tr>
+<table class="no-borders-table"><tr>
 <td width="33%"><a href="https://www.manning.com/books/akka-in-action" title="Akka in Action"><img alt="Akka in Action" src="./images/roestenburg-meap.png"/></a></td>
 <td width="33%"><a href="http://shop.oreilly.com/product/0636920028789.do" title="Effective Akka"><img alt="Effective Akka" src="./images/lrg.jpg"/></a></td>
 <td width="34%"><a href="http://www.amazon.com/Reactive-Messaging-Patterns-Actor-Model/dp/0133846830/" title="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka"><img alt="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka" src="./images/b974c4b898c2485ca7bb6e08caf7a30f.jpg"/></a></td>
