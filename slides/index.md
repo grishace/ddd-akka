@@ -10,7 +10,7 @@
 - data-background-transition : none
 - data-background-color : black
 
-' Sponsors slide (required by organizators) - Oct 2015
+' Sponsors slide (required by organizers) - Oct 2015
 
 ***
 
