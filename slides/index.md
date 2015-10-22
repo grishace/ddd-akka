@@ -16,7 +16,7 @@
 
 ### Actor-based concurrency with Akka.NET
 
-![Bruce Lee](./images/bruce_lee_render_3546x1114_by_sachso74-d6zg2tg.png)
+![Actor with concurrency](./images/bruce_lee_render_3546x1114_by_sachso74-d6zg2tg.png)
 
 <!-- Image by sachso74 (DevianTArt) -->
 
@@ -75,6 +75,8 @@ October 23, 2015</small>
 
 Carl Hewitt (1973), [Wikipedia](https://en.wikipedia.org/wiki/Actor_model)
 
+' Extreme encapsulation
+
 ---
 
 ### Actor Model
@@ -92,13 +94,34 @@ Akka ([Typesafe, Inc.](https://www.typesafe.com/), 2010)
 ---
 
 [![Akka.NET](./images/B4w4ReeCAAEVmdW.jpg)](http://getakka.net/)<br/>
-Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
+Akka.NET ([Petabridge, LLC](https://www.typesafe.com/), 2014-2015)
+
+---
+
+### Actor Model
+
+<p style="text-align:justify">
+In the Actor model, everything is an actor. Just like how everything is an "object" in Object Oriented Programming (OOP.) When working in C#, you have to model your problem domain using classes and objects. When working with Akka.NET, you model your problem domain with actors and messages.
+</p>
 
 ***
 
 ### Actor
 
 ![Actor](./images/actor.png)
+
+' Image by Petabridge
+' Async messages
+' ActorRef - location transparency
+' System messages (such as child failure) has highest priority (i.e. bypasses message ordering)
+
+---
+
+### Actor Address
+
+![ActorPath](./images/akka-actor-address-and-path.png)
+
+' Image by Petabridge
 
 ***
 
@@ -121,17 +144,23 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 
 ![Top Level Supervisors](./images/TopLevelSupervisors.png)
 
----
-
-### One-For-One Strategy
-
-![One-For-One Strategy](./images/OneForOne.png)
+' Image by Petabridge
+' Restart (default), Stop, Escalate, Resume
+' Point - localizing failure, push potentially dangerous operation to a child
 
 ---
 
-### All-For-One Strategy
+### Supervision Strategies
 
-![All-For-One Strategy](./images/AllForOne.png)
+<table class="no-borders-table">
+<tr><td width="50%">One-For-One Strategy</td><td width="50%">All-For-One Strategy</td></tr>
+<tr>
+<td><img alt="One-For-One Strategy" src="./images/OneForOne.png" /></td>
+<td><img alt="All-For-One Strategy" src="./images/AllForOne.png" /></td>
+</tr>
+</table>
+
+' Images by Petabridge
 
 ***
 
@@ -141,9 +170,21 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 
 ***
 
+### Akka.NET Goes to Wall Street
+
+>With two people, and me doing 80% of the work, we were able to completely rewrite the XHR/Web API layer into SignalR/Akka inside of 4 weeks.
+
+<!-- -->
+
+>I couldn't be happier with Akka overall.
+
+<small>Joel Mueller, Software Architect, SNL Financial<br/><a href="https://petabridge.com/blog/akkadotnet-goes-to-wall-street/">https://petabridge.com/blog/akkadotnet-goes-to-wall-street/</a></small>
+
+***
+
 ### Other implementations
 
-- Orleans<br/>[https://github.com/dotnet/orleans](https://github.com/dotnet/orleans)<br/>
+- Orleans<br/>[https://github.com/dotnet/orleans](https://github.com/dotnet/orleans)<br/><small>Achtung! Different language!</small>
 - PostSharp<br/>[http://doc.postsharp.net/actor](https://github.com/dotnet/orleans)<br/><small>commercial product, only 10 classes per project in free version</small><br/>
 - F# MailboxProcessor<br/>[MSDN](https://msdn.microsoft.com/en-us/library/ee370357.aspx?f=255&MSPPError=-2147217396)<br/><small>included into FSharp.Core</small>
 
@@ -159,7 +200,7 @@ Akka.NET ([Petabridge](https://www.typesafe.com/), 2014-2015)
 
 ### Books
 
-<table id="books-table"><tr>
+<table class="no-borders-table"><tr>
 <td width="33%"><a href="https://www.manning.com/books/akka-in-action" title="Akka in Action"><img alt="Akka in Action" src="./images/roestenburg-meap.png"/></a></td>
 <td width="33%"><a href="http://shop.oreilly.com/product/0636920028789.do" title="Effective Akka"><img alt="Effective Akka" src="./images/lrg.jpg"/></a></td>
 <td width="34%"><a href="http://www.amazon.com/Reactive-Messaging-Patterns-Actor-Model/dp/0133846830/" title="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka"><img alt="Reactive Messaging Patterns with the Actor Model: Applications and Integration in Scala and Akka" src="./images/b974c4b898c2485ca7bb6e08caf7a30f.jpg"/></a></td>
