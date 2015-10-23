@@ -29,14 +29,20 @@
       }
 
       // This is the only difference (besides the configuration) - select remote actor
-      if (message is StartCalculation)
+      var isCancel = message is CancelCalculation;
+      if ((message is StartCalculation) || isCancel)
       {
+        // Allocate actor is not created every time - is created with the system and plays as mediator
         var alloc =
           Context.ActorSelection(
             "akka.tcp://ActorsRemoteServer@remote-akka:8080/user/allocate");
         alloc.Tell(message);
 
-        return;
+        // continue normal operation
+        if (isCancel)
+        {
+          Self.Tell(new ReadConsoleMessage());
+        }
       }
 
       if (message is ResultMessage)
@@ -52,12 +58,12 @@
 
       if (message is ShutdownMessage)
       {
-        Context.System.Shutdown();
-
         var alloc =
           Context.ActorSelection(
             "akka.tcp://ActorsRemoteServer@remote-akka:8080/user/allocate");
         alloc.Tell(message);
+
+        Context.System.Shutdown();
 
         return;
       }

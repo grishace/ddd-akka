@@ -14,6 +14,12 @@
         return;
       }
 
+      if (message is CancelCalculation)
+      {
+        var calc = Context.ActorSelection("/user/allocate/*");
+        calc.Tell(message);
+      }
+
       // Handle additional shutdown message
       if (message is ShutdownMessage)
       {

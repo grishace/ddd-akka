@@ -35,27 +35,27 @@
 
       #region with supervising strategy
 
-//      actorSystem = ActorSystem.Create("HelloWorld");
-//      var guardian = actorSystem.ActorOf(Props.Create(() => new HelloGuardianActor()).WithSupervisorStrategy(new OneForOneStrategy(1, -1,
-//        e =>
-//        {
-//          Console.WriteLine("Restarting?");
-//          return Directive.Restart;
-//        })), "guardian");
-//      // create child actor
-//      guardian.Tell(new HelloWorldMessage("Create"));
-//      guardian.Tell(new HelloWorldMessage("1..."));
-//      guardian.Tell(new HelloWorldMessage("2..."));
-//      // simulate failure
-//      guardian.Tell(new HelloWorldMessage("Fail"));
-//      // next two messages should work as if actor was created and did not fail
-//      guardian.Tell(new HelloWorldMessage("Actor has been restarted"));
-//      guardian.Tell(new HelloWorldMessage("and continue processing messages"));
-//
-//      Console.ReadLine();
-//
-//      guardian.Tell(new ShutdownMessage());
-//      actorSystem.AwaitTermination();
+      //      actorSystem = ActorSystem.Create("HelloWorld");
+      //      var guardian = actorSystem.ActorOf(Props.Create(() => new HelloGuardianActor()).WithSupervisorStrategy(new OneForOneStrategy(1, -1,
+      //        e =>
+      //        {
+      //          Console.WriteLine("Restarting?");
+      //          return Directive.Restart;
+      //        })), "guardian");
+      //      // create child actor
+      //      guardian.Tell(new HelloWorldMessage("Create"));
+      //      guardian.Tell(new HelloWorldMessage("1..."));
+      //      guardian.Tell(new HelloWorldMessage("2..."));
+      //      // simulate failure
+      //      guardian.Tell(new HelloWorldMessage("Fail"));
+      //      // next two messages should work as if actor was created and did not fail
+      //      guardian.Tell(new HelloWorldMessage("Actor has been restarted"));
+      //      guardian.Tell(new HelloWorldMessage("and continue processing messages"));
+      //
+      //      Console.ReadLine();
+      //
+      //      guardian.Tell(new ShutdownMessage());
+      //      actorSystem.AwaitTermination();
 
       #endregion
     }
