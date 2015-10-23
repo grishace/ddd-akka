@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HelloActor.cs" />
+    <Compile Include="HelloGuardianActor.cs" />
     <Compile Include="HelloWorldActor.cs" />
     <Compile Include="HelloWorldMessage.cs" />
     <Compile Include="Program.cs" />
