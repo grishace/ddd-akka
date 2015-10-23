@@ -1,14 +1,10 @@
 ﻿namespace HelloWorld
 {
-  using System;
-  using System.Threading;
-  using System.Threading.Tasks;
-
   using Akka.Actor;
 
   internal class Program
   {
-    private static void Main(string[] args)
+    private static void Main()
     {
       // Create actor system
       ActorSystem actorSystem;
