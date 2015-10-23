@@ -45,8 +45,8 @@ October 23, 2015</small>
 </ul>
 
 ' Free lunch is over - 2005 - Dr. Dobb's magazine
-' Moore's law - 1965- transistor doubles every 18 months (and speed)
-' Amdahl’s law - 1967 - max speedup from parallel execution ~20%
+' Moore's law - 1965- transistor doubles every 18 months (and speed) Gordon Moore - founder of Intel
+' Amdahl’s law - 1967 - max speedup from parallel execution ~20% Gene Amdahl - computer architect
 
 ---
 
@@ -75,7 +75,8 @@ October 23, 2015</small>
 
 Carl Hewitt (1973), [Wikipedia](https://en.wikipedia.org/wiki/Actor_model)
 
-' Extreme encapsulation
+' Computer scientist
+' Extreme encapsulation (Martin Odersky)
 
 ---
 
@@ -195,6 +196,8 @@ In the Actor model, everything is an actor. Just like how everything is an "obje
 - JVM Akka [http://akka.io](http://akka.io)
 - Akka.NET [http://getakka.net](http://httpgetakka.net)
 - Akka.NET Bootcamp [https://petabridge.com/bootcamp/](https://petabridge.com/bootcamp/)
+
+' Princeples of Reactive Programming (Coursera)
 
 ---
 
