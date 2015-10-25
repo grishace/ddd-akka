@@ -6,14 +6,6 @@
 
 ***
 
-- data-background : images/ddd-2015-10-sponsors.png
-- data-background-transition : none
-- data-background-color : black
-
-' Sponsors slide (required by organizers) - Oct 2015
-
-***
-
 ### Actor-based concurrency with Akka.NET
 
 ![Actor with concurrency](./images/bruce_lee_render_3546x1114_by_sachso74-d6zg2tg.png)
