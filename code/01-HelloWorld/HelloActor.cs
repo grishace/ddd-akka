@@ -1,6 +1,7 @@
 ﻿namespace HelloWorld
 {
   using System;
+  using System.Diagnostics;
 
   using Akka.Actor;
 
@@ -18,7 +19,7 @@
       Receive<HelloWorldMessage>(
         m =>
         {
-          //GenerateFailure(m);
+          GenerateFailure(m);
 
           lastPayload = m.Message;
           BecomeStacked(SecondState);
@@ -36,21 +37,22 @@
       Receive<HelloWorldMessage>(
         m =>
         {
-          //GenerateFailure(m);
+          GenerateFailure(m);
 
           Console.WriteLine("{0} {1}", lastPayload, m.Message);
           UnbecomeStacked();
         });
     }
 
-    //private void GenerateFailure(HelloWorldMessage message)
-    //{
-    //  if (message.Message.StartsWith("FAIL", StringComparison.OrdinalIgnoreCase))
-    //  {
-    //    Console.WriteLine("Simulating failure...");
-    //    throw new Exception("Failed");
-    //  }
-    //}
+    [Conditional("SUPERVISION")]
+    private void GenerateFailure(HelloWorldMessage message)
+    {
+      if (message.Message.StartsWith("FAIL", StringComparison.OrdinalIgnoreCase))
+      {
+        Console.WriteLine("Simulating failure...");
+        throw new Exception("Failed");
+      }
+    }
   }
 
   public class ShutdownMessage { }
