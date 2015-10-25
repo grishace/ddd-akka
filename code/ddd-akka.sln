@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-ActorsConsole", "02-ActorsConsole\02-ActorsConsole.csproj", "{AB382AED-85C1-42E7-9ACC-6ED4301C52B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-ActorsRemoteClient", "03-ActorsRemoteClient\03-ActorsRemoteClient.csproj", "{A4E7AAAC-B074-4CD6-B104-EAE418551701}"
+	ProjectSection(ProjectDependencies) = postProject
+		{74B74C57-E5A9-4D90-8FDD-0BD1F57908D4} = {74B74C57-E5A9-4D90-8FDD-0BD1F57908D4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-ActorsRemoteServer", "03-ActorsRemoteServer\03-ActorsRemoteServer.csproj", "{74B74C57-E5A9-4D90-8FDD-0BD1F57908D4}"
 EndProject

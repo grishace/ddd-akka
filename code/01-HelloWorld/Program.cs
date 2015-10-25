@@ -37,10 +37,9 @@
       helloActor.Tell(new ShutdownMessage());
       // and this one will be added to the previous message and printed
       helloActor.Tell(new HelloWorldMessage("Denver Dev Day!"));
+
       helloActor.Tell(new ShutdownMessage());
-
       actorSystem.AwaitTermination();
-
     }
 
     [Conditional("SUPERVISION")]

@@ -8,9 +8,7 @@
   {
     public void Handle(HelloWorldMessage message)
     {
-      if (string.Compare(
-        "CREATE",
-        message.Message,
+      if (string.Compare("CREATE", message.Message,
         StringComparison.OrdinalIgnoreCase) == 0)
       {
         Context.ActorOf(Props.Create(() => new HelloActor()), "hello");
