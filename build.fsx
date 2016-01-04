@@ -12,7 +12,7 @@
 let gitOwner = "grishace"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
-let gitProjectName = "ddd-2015-fsharp"
+let gitProjectName = "ddd-akka"
 
 open FsReveal
 open Fake
