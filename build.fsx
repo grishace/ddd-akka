@@ -4,6 +4,7 @@
 
 #r "FakeLib.dll"
 #r "suave.dll"
+#r "Suave.dll"
 
 #load "fsreveal.fsx"
 
@@ -13,6 +14,10 @@ let gitOwner = "grishace"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
 let gitProjectName = "ddd-akka"
+let gitOwner = "myGitUser"
+let gitHome = "https://github.com/" + gitOwner
+// The name of the project on GitHub
+let gitProjectName = "MyProject"
 
 open FsReveal
 open Fake
@@ -97,6 +102,19 @@ let startWebServer () =
     let serverConfig = 
         { defaultConfig with
            homeFolder = Some (FullName outDir)
+    let rec findPort port =
+        let portIsTaken =
+            System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners()
+            |> Seq.exists (fun x -> x.Port = port)
+
+        if portIsTaken then findPort (port + 1) else port
+
+    let port = findPort 8083
+
+    let serverConfig = 
+        { defaultConfig with
+           homeFolder = Some (FullName outDir)
+           bindings = [ Types.HttpBinding.mk' Types.HTTP "127.0.0.1" port ]
         }
     let app =
       choose [
@@ -107,6 +125,7 @@ let startWebServer () =
         >>= browseHome ]
     startWebServerAsync serverConfig app |> snd |> Async.Start
     Process.Start "http://localhost:8083/index.html" |> ignore
+    Process.Start (sprintf "http://localhost:%d/index.html" port) |> ignore
 
 Target "GenerateSlides" (fun _ ->
     !! (slidesDir @@ "*.md")
