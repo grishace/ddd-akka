@@ -3,7 +3,6 @@
 #I @"packages/Suave/lib/net40"
 
 #r "FakeLib.dll"
-#r "suave.dll"
 #r "Suave.dll"
 
 #load "fsreveal.fsx"
@@ -13,11 +12,7 @@
 let gitOwner = "grishace"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
-let gitProjectName = "ddd-akka"
-let gitOwner = "myGitUser"
-let gitHome = "https://github.com/" + gitOwner
-// The name of the project on GitHub
-let gitProjectName = "MyProject"
+let gitProjectName = "ddd-2015-fsharp"
 
 open FsReveal
 open Fake
@@ -99,9 +94,6 @@ let socketHandler (webSocket : WebSocket) =
   }
 
 let startWebServer () =
-    let serverConfig = 
-        { defaultConfig with
-           homeFolder = Some (FullName outDir)
     let rec findPort port =
         let portIsTaken =
             System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners()
@@ -124,7 +116,6 @@ let startWebServer () =
         >>= Writers.setHeader "Expires" "0"
         >>= browseHome ]
     startWebServerAsync serverConfig app |> snd |> Async.Start
-    Process.Start "http://localhost:8083/index.html" |> ignore
     Process.Start (sprintf "http://localhost:%d/index.html" port) |> ignore
 
 Target "GenerateSlides" (fun _ ->
