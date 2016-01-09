@@ -16,8 +16,8 @@
 Software engineer, McGraw Hill Financial<br/>
 [@grishace](https://twitter.com/grishace)<br/>
 <br/>
-Denver Dev Day<br/>
-October 23, 2015</small>
+Golden Func Meetup<br/>
+January 14, 2016</small>
 
 ***
 

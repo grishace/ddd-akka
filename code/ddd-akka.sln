@@ -1,20 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-HelloWorld", "01-HelloWorld\01-HelloWorld.csproj", "{89003BD4-04B7-4FA6-88A8-46959931D162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-HelloWorld", "CSharp\01-HelloWorld\01-HelloWorld.csproj", "{89003BD4-04B7-4FA6-88A8-46959931D162}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-AsyncConsole", "02-AsyncConsole\02-AsyncConsole.csproj", "{DC4A7FA6-6695-4BC6-AD57-22B0D1912628}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-AsyncConsole", "CSharp\02-AsyncConsole\02-AsyncConsole.csproj", "{DC4A7FA6-6695-4BC6-AD57-22B0D1912628}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-ActorsConsole", "02-ActorsConsole\02-ActorsConsole.csproj", "{AB382AED-85C1-42E7-9ACC-6ED4301C52B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-ActorsConsole", "CSharp\02-ActorsConsole\02-ActorsConsole.csproj", "{AB382AED-85C1-42E7-9ACC-6ED4301C52B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-ActorsRemoteClient", "03-ActorsRemoteClient\03-ActorsRemoteClient.csproj", "{A4E7AAAC-B074-4CD6-B104-EAE418551701}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-ActorsRemoteClient", "CSharp\03-ActorsRemoteClient\03-ActorsRemoteClient.csproj", "{A4E7AAAC-B074-4CD6-B104-EAE418551701}"
 	ProjectSection(ProjectDependencies) = postProject
 		{74B74C57-E5A9-4D90-8FDD-0BD1F57908D4} = {74B74C57-E5A9-4D90-8FDD-0BD1F57908D4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-ActorsRemoteServer", "03-ActorsRemoteServer\03-ActorsRemoteServer.csproj", "{74B74C57-E5A9-4D90-8FDD-0BD1F57908D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-ActorsRemoteServer", "CSharp\03-ActorsRemoteServer\03-ActorsRemoteServer.csproj", "{74B74C57-E5A9-4D90-8FDD-0BD1F57908D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{D4101184-FAAC-4435-B70C-3EC5696A4D2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fsharp", "Fsharp", "{BFB0D902-7119-41EF-83E5-60C4A5072688}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,5 +49,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89003BD4-04B7-4FA6-88A8-46959931D162} = {D4101184-FAAC-4435-B70C-3EC5696A4D2B}
+		{DC4A7FA6-6695-4BC6-AD57-22B0D1912628} = {D4101184-FAAC-4435-B70C-3EC5696A4D2B}
+		{AB382AED-85C1-42E7-9ACC-6ED4301C52B5} = {D4101184-FAAC-4435-B70C-3EC5696A4D2B}
+		{A4E7AAAC-B074-4CD6-B104-EAE418551701} = {D4101184-FAAC-4435-B70C-3EC5696A4D2B}
+		{74B74C57-E5A9-4D90-8FDD-0BD1F57908D4} = {D4101184-FAAC-4435-B70C-3EC5696A4D2B}
 	EndGlobalSection
 EndGlobal
