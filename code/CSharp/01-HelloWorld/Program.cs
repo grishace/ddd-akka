@@ -36,7 +36,7 @@
       // bacause of behavior change the following message will be skipped
       helloActor.Tell(new ShutdownMessage());
       // and this one will be added to the previous message and printed
-      helloActor.Tell(new HelloWorldMessage("Denver Dev Day!"));
+      helloActor.Tell(new HelloWorldMessage("Golden Func Meetup!"));
 
       helloActor.Tell(new ShutdownMessage());
       actorSystem.AwaitTermination();
