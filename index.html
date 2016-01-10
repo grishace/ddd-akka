@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Actor-based concurrency with Akka.NET</title>
-    <meta name="description" content="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)">
+    <meta name="description" content="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)">
     <meta name="author" content="Grigoriy Belenkiy">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -46,18 +46,15 @@
 </head>
 <body>
     <div class="reveal">
-        
+        <div class="tip" id="fs1">val helloWorld : unit -&gt; obj<br /><br />Full name: index.helloWorld</div>
+<div class="tip" id="fs2">val system : obj</div>
+<div class="tip" id="fs3">namespace System</div>
+<div class="tip" id="fs4">val actor : obj</div>
+<div class="tip" id="fs5">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section data-background="images/ddd-2015-10-sponsors.png" data-background-color="black" data-background-transition="none">
-
-<aside class="notes">
-Sponsors slide (required by organizers) - Oct 2015<br/>
-</aside>
-
-</section>
-
-<section >
+            <section >
 
 <h3>Actor-based concurrency with Akka.NET</h3>
 
@@ -69,8 +66,8 @@ Sponsors slide (required by organizers) - Oct 2015<br/>
 Software engineer, McGraw Hill Financial<br/>
 <a href="https://twitter.com/grishace">@grishace</a><br/>
 <br/>
-Denver Dev Day<br/>
-October 23, 2015</small></p>
+Golden Func Meetup<br/>
+January 14, 2016</small></p>
 
 </section>
 
@@ -105,7 +102,7 @@ Amdahl’s law - 1967 - max speedup from parallel execution ~20% Gene Amdahl - c
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <p><img src="./images/AmdahlsLaw.svg" alt="Amdahl’s law" /></p>
 
@@ -150,7 +147,7 @@ Extreme encapsulation (Martin Odersky)<br/>
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <h3>Actor Model</h3>
 
@@ -161,7 +158,7 @@ Extreme encapsulation (Martin Odersky)<br/>
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <p><a href="http://akka.io/"><img src="./images/akka_full_color.svg" alt="Akka" /></a><br/>
 Akka (<a href="https://www.typesafe.com/">Typesafe, Inc.</a>, 2010)</p>
@@ -172,14 +169,14 @@ mountain in Sweden<br/>
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <p><a href="http://getakka.net/"><img src="./images/B4w4ReeCAAEVmdW.jpg" alt="Akka.NET" /></a><br/>
 Akka.NET (<a href="https://www.typesafe.com/">Petabridge, LLC</a>, 2014-2015)</p>
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <h3>Actor Model</h3>
 
@@ -208,7 +205,7 @@ System messages (such as child failure) has highest priority (i.e. bypasses mess
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <h3>Actor Address</h3>
 
@@ -230,20 +227,14 @@ Image by Petabridge<br/>
 <span class="l">2: </span>
 <span class="l">3: </span>
 <span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp">      ActorSystem actorSystem;
-      <span class="k">using</span> (actorSystem <span class="o">=</span> ActorSystem.Create(<span class="s">"HelloWorld"</span>))
-      {
-        <span class="k">var</span> helloWorldActor <span class="o">=</span>
-          actorSystem.ActorOf(Props.Create(() <span class="o">=</span><span class="o">&gt;</span> <span class="k">new</span> HelloWorldActor()));
-        helloWorldActor.Tell(<span class="k">new</span> HelloWorldMessage(<span class="s">"Hello, World!"</span>));
-      }
-      actorSystem.AwaitTermination();
-</code></pre></td></tr></table>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="f">helloWorld</span> () <span class="o">=</span> 
+  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">system</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">System</span><span class="o">.</span><span class="i">create</span> <span class="s">&quot;helloworld-system&quot;</span> (<span class="i">Configuration</span><span class="o">.</span><span class="i">load</span>())
+  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">actor</span> <span class="o">=</span> <span class="i">spawn</span> <span onmouseout="hideTip(event, 'fs2', 5)" onmouseover="showTip(event, 'fs2', 5)" class="i">system</span> <span class="s">&quot;helloworld-actor&quot;</span> (<span class="i">actorOf</span> (<span class="k">fun</span> <span class="i">m</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs5', 6)" onmouseover="showTip(event, 'fs5', 6)" class="i">printfn</span> <span class="s">&quot;%s&quot;</span> <span class="i">m</span>))
+  <span onmouseout="hideTip(event, 'fs4', 7)" onmouseover="showTip(event, 'fs4', 7)" class="i">actor</span> <span class="o">&lt;!</span> <span class="s">&quot;Hello, World!&quot;</span>
+</code></pre></td>
+</tr>
+</table>
 
 </section>
 
@@ -263,7 +254,7 @@ Point - localizing failure, push potentially dangerous operation to a child<br/>
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <h3>Supervision Strategies</h3>
 
@@ -287,7 +278,7 @@ Images by Petabridge<br/>
 
 <h3>Demo</h3>
 
-<p><a href="https://github.com/grishace/ddd-akka/tree/master/code"><a href="https://github.com/grishace/ddd-akka/tree/master/code">https://github.com/grishace/ddd-akka/tree/master/code</a></a></p>
+<p><a href="https://github.com/grishace/ddd-akka/tree/fsharp/code/FSharp"><a href="https://github.com/grishace/ddd-akka/tree/fsharp/code/FSharp">https://github.com/grishace/ddd-akka/tree/fsharp/code/FSharp</a></a></p>
 
 </section>
 
@@ -339,7 +330,7 @@ Princeples of Reactive Programming (Coursera)<br/>
 
 </section>
 
-<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
+<section author="Grigoriy Belenkiy" description="Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)" theme="simple" title="Actor-based concurrency with Akka.NET" transition="zoom">
 
 <h3>Books</h3>
 
