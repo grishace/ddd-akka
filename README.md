@@ -1,4 +1,4 @@
-# Denver Dev Day (October 23, 2015)
+# Golden Func Meetup (January 14, 2016)
 
 [Actor-based concurrency with Akka.NET](http://grishace.github.io/ddd-akka)
 
