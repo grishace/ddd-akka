@@ -1,5 +1,5 @@
 ﻿- title : Actor-based concurrency with Akka.NET 
-- description : Actor-based concurrency with Akka.NET. Denver Dev Day (October 23, 2015)
+- description : Actor-based concurrency with Akka.NET. Golden Func Meetup (January 14, 2016)
 - author : Grigoriy Belenkiy
 - theme : simple
 - transition : zoom
@@ -120,15 +120,11 @@ In the Actor model, everything is an actor. Just like how everything is an "obje
 
 ### Hello, World!
 
-```csharp
-      ActorSystem actorSystem;
-      using (actorSystem = ActorSystem.Create("HelloWorld"))
-      {
-        var helloWorldActor =
-          actorSystem.ActorOf(Props.Create(() => new HelloWorldActor()));
-        helloWorldActor.Tell(new HelloWorldMessage("Hello, World!"));
-      }
-      actorSystem.AwaitTermination();
+```fsharp
+let helloWorld () = 
+  let system = System.create "helloworld-system" (Configuration.load())
+  let actor = spawn system "helloworld-actor" (actorOf (fun m -> printfn "%s" m))
+  actor <! "Hello, World!"
 ```
 
 ***
@@ -159,7 +155,7 @@ In the Actor model, everything is an actor. Just like how everything is an "obje
 
 ### Demo
 
-[https://github.com/grishace/ddd-akka/tree/master/code](https://github.com/grishace/ddd-akka/tree/master/code)
+[https://github.com/grishace/ddd-akka/tree/fsharp/code/FSharp](https://github.com/grishace/ddd-akka/tree/fsharp/code/FSharp)
 
 ***
 
