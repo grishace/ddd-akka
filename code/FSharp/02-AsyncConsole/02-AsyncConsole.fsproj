@@ -47,7 +47,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.fs" />
+    <Compile Include="AsyncConsole.fs" />
     <None Include="App.config" />
   </ItemGroup>
   <PropertyGroup>

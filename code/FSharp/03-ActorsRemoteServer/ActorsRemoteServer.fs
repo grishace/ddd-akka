@@ -31,9 +31,12 @@ type CalculationActor () =
         
       let run =
         async {
-          let! res = Async.StartAsTask(task, TaskCreationOptions.None, (!ctsRef).Token) |> Async.AwaitTask
+          let! res = 
+            Async.StartAsTask(task, TaskCreationOptions.None, (!ctsRef).Token)
+            |> Async.AwaitTask
           // reply result back to sender if not cancelled
-          if not((!ctsRef).IsCancellationRequested) then sender <! Calculation.Result (msg.String, res)
+          if not((!ctsRef).IsCancellationRequested) then 
+            sender <! Calculation.Result (msg.String, res)
           (!ctsRef).Dispose ()
           ctx.Stop(self)
         }
