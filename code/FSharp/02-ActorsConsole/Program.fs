@@ -59,7 +59,7 @@ type Coordinator () =
          let write = Actor.Context.ActorOf(Props(typedefof<WriteConsoleActor>, Array.empty))
          write <! sprintf "Compute from %s: %d" s i
        | _ ->
-         let alloc = Actor.Context.ActorSelection("/user/allocator")
+         let alloc = Actor.Context.ActorSelection "/user/allocator"
          alloc <! msg
          match msg with
          | Cancel -> this.Self <! ReadConsole
@@ -115,16 +115,14 @@ type Allocator () =
     match message with
     | :? Calculation as msg ->
       match msg with
-      | Result (_, _) -> 
-        let coordinator = Actor.Context.ActorSelection "/user/coordinator"  
-        coordinator <! msg
       | Start _ ->
         // use different dispatcher so it won't affect (mostly) the akka system itself
         let calc = Actor.Context.ActorOf(Props.Create<CalculationActor>().WithDispatcher("akka.actor.calc-dispatcher"))
-        calc <! msg
+        calc.Forward msg
       | Cancel -> 
         let calc = Actor.Context.ActorSelection "/user/allocator/*"  
         calc <! msg
+      | _ -> this.Unhandled ()
     | _ -> this.Unhandled ()
      
 [<EntryPoint>]

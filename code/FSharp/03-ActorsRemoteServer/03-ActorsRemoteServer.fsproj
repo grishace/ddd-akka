@@ -5,14 +5,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>e91632aa-9241-4278-a1e5-8c63c6556d9f</ProjectGuid>
+    <ProjectGuid>9ffed95c-8966-4bc6-985a-6927645eefe8</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_02_ActorsConsole</RootNamespace>
-    <AssemblyName>_02_ActorsConsole</AssemblyName>
+    <RootNamespace>_03_ActorsRemoteServer</RootNamespace>
+    <AssemblyName>_03_ActorsRemoteServer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
-    <Name>02-ActorsConsole</Name>
+    <Name>03-ActorsRemoteServer</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
-    <DocumentationFile>bin\Debug\_02_ActorsConsole.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\_03_ActorsRemoteServer.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,7 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>bin\Release\_02_ActorsConsole.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\_03_ActorsRemoteServer.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
@@ -67,6 +67,10 @@
       <HintPath>..\..\packages\Akka.FSharp.1.0.5\lib\net45\Akka.FSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Akka.Remote">
+      <HintPath>..\..\packages\Akka.Remote.1.0.5\lib\net45\Akka.Remote.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FSharp.PowerPack">
       <HintPath>..\..\packages\FSPowerPack.Core.Community.3.0.0.0\lib\Net40\FSharp.PowerPack.dll</HintPath>
       <Private>True</Private>
@@ -77,6 +81,18 @@
     </Reference>
     <Reference Include="FsPickler">
       <HintPath>..\..\packages\FsPickler.1.7.1\lib\net45\FsPickler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers">
+      <HintPath>..\..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers.Serialization">
+      <HintPath>..\..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Helios">
+      <HintPath>..\..\packages\Helios.1.4.2\lib\net45\Helios.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
@@ -92,6 +108,13 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Messages\Messages.fsproj">
+      <Name>Messages</Name>
+      <Project>{1f9352b0-69c1-482f-ac60-26c0a43e809f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
