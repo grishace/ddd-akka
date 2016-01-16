@@ -74,7 +74,7 @@ type CalculationActor () =
   inherit Actor()
 
   // Note: must be a ref, can't request cancellation otherwise
-  let ctsRef = ref <| new CancellationTokenSource()
+  let cts = new CancellationTokenSource()
 
   override this.OnReceive message =
     match message with
@@ -97,15 +97,15 @@ type CalculationActor () =
         
         let run =
           async {
-            let! res = Async.StartAsTask(task, TaskCreationOptions.None, (!ctsRef).Token) |> Async.AwaitTask
+            let! res = Async.StartAsTask(task, TaskCreationOptions.None, cts.Token) |> Async.AwaitTask
             // reply result back to sender if not cancelled
-            if not((!ctsRef).IsCancellationRequested) then sender <! Result (s, res)
-            (!ctsRef).Dispose ()
+            if not(cts.IsCancellationRequested) then sender <! Result (s, res)
+            cts.Dispose ()
             ctx.Stop(self)
           }
 
         Async.Start run
-      | Cancel -> (!ctsRef).Cancel()
+      | Cancel -> cts.Cancel()
       | _ -> this.Unhandled ()
     | _ -> this.Unhandled ()
 

@@ -9,8 +9,7 @@ open Messages
 type CalculationActor () =
   inherit Actor()
 
-  // Note: must be a ref, can't request cancellation otherwise
-  let ctsRef = ref <| new CancellationTokenSource()
+  let cts = new CancellationTokenSource()
 
   override this.OnReceive message =
     match message with
@@ -32,17 +31,17 @@ type CalculationActor () =
       let run =
         async {
           let! res = 
-            Async.StartAsTask(task, TaskCreationOptions.None, (!ctsRef).Token)
+            Async.StartAsTask(task, TaskCreationOptions.None, cts.Token)
             |> Async.AwaitTask
           // reply result back to sender if not cancelled
-          if not((!ctsRef).IsCancellationRequested) then 
+          if not(cts.IsCancellationRequested) then 
             sender <! Calculation.Result (msg.String, res)
-          (!ctsRef).Dispose ()
+          cts.Dispose ()
           ctx.Stop(self)
         }
      
       Async.Start run
-    | :? Calculation.Cancel -> (!ctsRef).Cancel()
+    | :? Calculation.Cancel -> cts.Cancel()
     | _ -> this.Unhandled ()
 
 type Allocator () =
