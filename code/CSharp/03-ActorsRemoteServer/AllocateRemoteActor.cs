@@ -23,7 +23,7 @@
       // Handle additional shutdown message
       if (message is ShutdownMessage)
       {
-        Context.System.Shutdown();
+        Context.System.Terminate();
         return;
       }
 

@@ -64,7 +64,7 @@ type Coordinator () =
          match msg with
          | Cancel -> this.Self <! ReadConsole
          | _ -> ()
-     | :? ShutdownMessage -> Actor.Context.System.Shutdown()
+     | :? ShutdownMessage -> Actor.Context.System.Terminate() |> ignore
      | _ -> this.Unhandled ()
 
 open System.Threading
@@ -131,5 +131,5 @@ let main argv =
   system.ActorOf<Allocator> "allocator" |> ignore
   let coordinator = system.ActorOf<Coordinator> "coordinator"
   coordinator <! ReadConsole
-  system.AwaitTermination ()
+  system.WhenTerminated.Wait ()
   0

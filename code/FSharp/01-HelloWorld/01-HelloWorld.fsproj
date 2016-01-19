@@ -20,7 +20,7 @@
     <Optimize>false</Optimize>
     <Tailcalls>false</Tailcalls>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;BEHAVIOR;SUPERVISION</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;_BEHAVIOR;_SUPERVISION</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\_01_HelloWorld.XML</DocumentationFile>
@@ -60,11 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Akka">
-      <HintPath>..\..\packages\Akka.1.0.5\lib\net45\Akka.dll</HintPath>
+      <HintPath>..\..\packages\Akka.1.0.6\lib\net45\Akka.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Akka.FSharp">
-      <HintPath>..\..\packages\Akka.FSharp.1.0.5\lib\net45\Akka.FSharp.dll</HintPath>
+      <HintPath>..\..\packages\Akka.FSharp.1.0.6\lib\net45\Akka.FSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.PowerPack">

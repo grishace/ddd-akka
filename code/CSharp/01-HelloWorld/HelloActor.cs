@@ -28,7 +28,7 @@
       Receive<ShutdownMessage>(
         m =>
         {
-          Context.System.Shutdown();
+          Context.System.Terminate();
         });
     }
 

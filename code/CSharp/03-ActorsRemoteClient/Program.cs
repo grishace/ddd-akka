@@ -12,7 +12,7 @@
         actorSystem.ActorOf(Props.Create(() => new CoordinatorRemoteActor()));
       coordinator.Tell(new ReadConsoleMessage());
 
-      actorSystem.AwaitTermination();
+      actorSystem.WhenTerminated.Wait();
     }
   }
 }

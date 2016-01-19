@@ -54,7 +54,7 @@ type Coordinator () =
      | :? ShutdownMessage as msg ->
        let alloc = Actor.Context.ActorSelection remote
        alloc <! msg
-       Actor.Context.System.Shutdown()
+       Actor.Context.System.Terminate() |> ignore
      | _ -> this.Unhandled ()
 
 [<EntryPoint>]
@@ -62,5 +62,5 @@ let main argv =
   let system = System.create "remote-client" <| Configuration.load()
   let coordinator = system.ActorOf<Coordinator> "coordinator"
   coordinator <! ConsoleMessage.ReadConsole ()
-  system.AwaitTermination ()
+  system.WhenTerminated.Wait ()
   0

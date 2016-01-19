@@ -20,7 +20,7 @@
         helloWorldActor.Tell(new HelloWorldMessage("Hello, World!"));
       }
       // Wait for the system graceful shutdown
-      actorSystem.AwaitTermination();
+      actorSystem.WhenTerminated.Wait();
 
       WithBehaviorChange();
 
@@ -39,7 +39,7 @@
       helloActor.Tell(new HelloWorldMessage("Golden Func Meetup!"));
 
       helloActor.Tell(new ShutdownMessage());
-      actorSystem.AwaitTermination();
+      actorSystem.WhenTerminated.Wait();
     }
 
     [Conditional("SUPERVISION")]
@@ -66,7 +66,7 @@
       Console.ReadLine();
 
       guardian.Tell(new ShutdownMessage());
-      actorSystem.AwaitTermination();
+      actorSystem.WhenTerminated.Wait();
     }
   }
 }

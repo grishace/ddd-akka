@@ -54,7 +54,7 @@ type Allocator () =
     | :? Calculation.Cancel as msg -> 
       let calc = Actor.Context.ActorSelection "/user/allocator/*"  
       calc <! msg
-    | :? ShutdownMessage -> Actor.Context.System.Shutdown ()
+    | :? ShutdownMessage -> Actor.Context.System.Terminate () |> ignore
     | _ -> this.Unhandled ()
 
 
@@ -62,5 +62,5 @@ type Allocator () =
 let main argv = 
   let system = System.create "remote-server" <| Configuration.load()
   system.ActorOf<Allocator> "allocator" |> ignore
-  system.AwaitTermination ()
+  system.WhenTerminated.Wait ()
   0

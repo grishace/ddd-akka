@@ -23,7 +23,7 @@
       coordinator.Tell(new ReadConsoleMessage());
 
       // Block main execution thread until actor system is shut down
-      actorSystem.AwaitTermination();
+      actorSystem.WhenTerminated.Wait();
     }
   }
 }

@@ -67,7 +67,7 @@ namespace ActorsConsole
       // Handle shutdown
       if (message is ShutdownMessage)
       {
-        Context.System.Shutdown();
+        Context.System.Terminate();
         return;
       }
 

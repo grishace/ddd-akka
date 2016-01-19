@@ -63,7 +63,7 @@
             "akka.tcp://ActorsRemoteServer@remote-akka:8080/user/allocate");
         alloc.Tell(message);
 
-        Context.System.Shutdown();
+        Context.System.Terminate();
 
         return;
       }

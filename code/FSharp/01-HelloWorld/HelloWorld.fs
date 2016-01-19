@@ -5,8 +5,7 @@ open System.Threading
 let run example = 
   let awaitTermination (system:ActorSystem) =
     Thread.Sleep(100)    
-    system.Shutdown()  
-    system.AwaitTermination()
+    system.Terminate().Wait()
   example() |> awaitTermination 
 
 let helloWorld () = 

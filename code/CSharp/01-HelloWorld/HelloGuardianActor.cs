@@ -21,7 +21,7 @@
 
     public void Handle(ShutdownMessage message)
     {
-      Context.System.Shutdown();
+      Context.System.Terminate();
     }
   }
 }
